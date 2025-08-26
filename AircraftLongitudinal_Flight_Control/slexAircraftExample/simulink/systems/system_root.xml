@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[234, 216, 1214, 791]</P>
+  <P Name="Open">on</P>
+  <P Name="ReportName">simulink-default.rpt</P>
+  <P Name="SIDHighWatermark">80</P>
+  <Block BlockType="Inport" Name="u" SID="1">
+    <P Name="Position">[5, 97, 35, 113]</P>
+    <P Name="ZOrder">-1</P>
+  </Block>
+  <Block BlockType="TransferFcn" Name="Actuator&#xA;Model" SID="2">
+    <P Name="Position">[245, 102, 305, 148]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="Denominator">[ Ta, 1]</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="Aircraft&#xA;Dynamics&#xA;Model" SID="3">
+    <PortCounts in="3" out="4"/>
+    <P Name="Position">[335, 93, 450, 287]</P>
+    <P Name="ZOrder">-3</P>
+    <Mask>
+      <Display RunInitForIconRedraw="off">port_label(&apos;input&apos;,1,&apos;\delta_{e}, deg&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;input&apos;,2,&apos;wGust, ft/sec&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;input&apos;,3,&apos;qGust, rad/sec&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;output&apos;,1,&apos;wdot, ft/sec^2&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;output&apos;,2,&apos;qdot, rad/sec^{2}&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;output&apos;,3,&apos;q, rad/sec&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;output&apos;,4,&apos;\alpha, rad&apos;,&apos;texmode&apos;,&apos;on&apos;);
+
+</Display>
+    </Mask>
+    <PortProperties>
+      <Port Type="out" Index="3">
+        <P Name="Name">q, rad/sec</P>
+      </Port>
+      <Port Type="out" Index="4">
+        <P Name="Name">alpha, rad</P>
+        <P Name="DataLoggingName">alpha</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_3"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="Controller" SID="33">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[110, 95, 210, 155]</P>
+    <P Name="ZOrder">-4</P>
+    <Mask>
+      <Display RunInitForIconRedraw="off">port_label(&apos;input&apos;,1,&apos;Stick, in&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;input&apos;,3,&apos;\alpha, rad&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;input&apos;,2,&apos;q, rad/sec&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;output&apos;,1,&apos;\deltacmd, deg&apos;,&apos;texmode&apos;,&apos;on&apos;);
+</Display>
+    </Mask>
+    <System Ref="system_33"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="Dryden Wind&#xA;Gust Models" SID="48">
+    <PortCounts out="2"/>
+    <P Name="Position">[110, 242, 150, 293]</P>
+    <P Name="ZOrder">-5</P>
+    <Mask>
+      <Display RunInitForIconRedraw="off">port_label(&apos;output&apos;,1,&apos;wg&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;output&apos;,2,&apos;qg&apos;,&apos;texmode&apos;,&apos;on&apos;);
+</Display>
+    </Mask>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">wGust</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="Name">qGust</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_48"/>
+  </Block>
+  <Block BlockType="Gain" Name="Gain" SID="54">
+    <P Name="Position">[220, 171, 260, 209]</P>
+    <P Name="ZOrder">-6</P>
+    <P Name="ShowName">off</P>
+    <P Name="Gain">Zw</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain1" SID="55">
+    <P Name="Position">[220, 300, 260, 340]</P>
+    <P Name="ZOrder">-7</P>
+    <P Name="ShowName">off</P>
+    <P Name="Gain">Mq</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain2" SID="56">
+    <P Name="Position">[220, 233, 260, 277]</P>
+    <P Name="ZOrder">-8</P>
+    <P Name="ShowName">off</P>
+    <P Name="Gain">Mw</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="More Info" SID="57">
+    <PortCounts/>
+    <P Name="Position">[575, 20, 599, 43]</P>
+    <P Name="ZOrder">-9</P>
+    <P Name="DropShadow">on</P>
+    <P Name="ShowName">off</P>
+    <P Name="OpenFcn">showExample(&apos;simulink_aerospace/AircraftLongitudinalFlightControlExample&apos;)</P>
+    <Mask>
+      <Display RunInitForIconRedraw="off">disp(&apos;?&apos;)</Display>
+    </Mask>
+    <System Ref="system_57"/>
+  </Block>
+  <Block BlockType="SignalGenerator" Name="Pilot" SID="58">
+    <PortCounts out="1"/>
+    <P Name="Position">[50, 30, 90, 60]</P>
+    <P Name="ZOrder">-10</P>
+    <P Name="BlockRotation">270</P>
+    <P Name="BlockMirror">on</P>
+    <P Name="NameLocation">left</P>
+    <P Name="WaveForm">square</P>
+    <P Name="Amplitude">0.5</P>
+    <P Name="Frequency">0.500000</P>
+    <P Name="Units">rad/sec</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">Stick</P>
+        <P Name="DataLoggingName">Stick</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Sum" Name="Sum" SID="70">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[285, 245, 305, 265]</P>
+    <P Name="ZOrder">-12</P>
+    <P Name="ShowName">off</P>
+    <P Name="Inputs">|++</P>
+    <P Name="InputSameDT">on</P>
+    <P Name="OutDataTypeStr">Inherit: Same as first input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum1" SID="71">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[60, 95, 80, 115]</P>
+    <P Name="ZOrder">-13</P>
+    <P Name="ShowName">off</P>
+    <P Name="Inputs">++|</P>
+    <P Name="InputSameDT">on</P>
+    <P Name="OutDataTypeStr">Inherit: Same as first input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Terminator" Name="qdot" SID="79">
+    <P Name="Position">[485, 155, 505, 175]</P>
+    <P Name="ZOrder">2</P>
+    <P Name="ShowName">off</P>
+  </Block>
+  <Block BlockType="Terminator" Name="wdot" SID="78">
+    <P Name="Position">[485, 105, 505, 125]</P>
+    <P Name="ZOrder">1</P>
+    <P Name="ShowName">off</P>
+  </Block>
+  <Block BlockType="Outport" Name="alpha, rad" SID="72">
+    <P Name="Position">[535, 362, 565, 378]</P>
+    <P Name="ZOrder">-14</P>
+    <P Name="InitialOutput">0</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Block BlockType="Scope" Name="Scope1" SID="74">
+    <PortCounts/>
+    <P Name="Position">[20, 15, 60, 55]</P>
+    <P Name="ZOrder">-16</P>
+    <P Name="IOType">viewer</P>
+    <List ListType="IOSignalStrings">
+      <P Name="set0ParseKeys">8</P>
+      <P Name="set0Sigs">Pilot:o1</P>
+      <P Name="set1ParseKeys">26</P>
+      <P Name="set1Sigs">Aircraft Dynamics Model:o4</P>
+    </List>
+    <P Name="ScopeSpecificationString">Simulink.scopes.TimeScopeBlockCfg(&apos;CurrentConfiguration&apos;, extmgr.ConfigurationSet(extmgr.Configuration(&apos;Core&apos;,&apos;General UI&apos;,true),extmgr.Configuration(&apos;Core&apos;,&apos;Source UI&apos;,true),extmgr.Configuration(&apos;Sources&apos;,&apos;WiredSimulink&apos;,true,&apos;DataLoggingMaxPoints&apos;,&apos;7500&apos;,&apos;DataLoggingLimitDataPoints&apos;,true,&apos;DataLoggingSaveFormat&apos;,&apos;Array&apos;,&apos;DataLoggingDecimation&apos;,&apos;1&apos;,&apos;DataLoggingDecimateData&apos;,true),extmgr.Configuration(&apos;Visuals&apos;,&apos;Time Domain&apos;,true,&apos;SerializedDisplays&apos;,{struct(&apos;MinYLimReal&apos;,&apos;-0.6&apos;,&apos;MaxYLimReal&apos;,&apos;0.6&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0&apos;,&apos;MaxYLimMag&apos;,&apos;10&apos;,&apos;LegendVisibility&apos;,&apos;off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,0,&apos;LineNames&apos;,{{[]}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1),struct(&apos;MinYLimReal&apos;,&apos;-0.6&apos;,&apos;MaxYLimReal&apos;,&apos;0.6&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0&apos;,&apos;MaxYLimMag&apos;,&apos;10&apos;,&apos;LegendVisibility&apos;,&apos;off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,0,&apos;LineNames&apos;,{{[]}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,2)},&apos;DisplayPropertyDefaults&apos;,struct(&apos;MinYLimReal&apos;,&apos;-0.6&apos;,&apos;MaxYLimReal&apos;,&apos;0.6&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0&apos;,&apos;MaxYLimMag&apos;,&apos;10&apos;,&apos;LegendVisibility&apos;,&apos;off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,0,&apos;LineNames&apos;,{{[]}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1),&apos;DisplayLayoutDimensions&apos;,[2 1]),extmgr.Configuration(&apos;Tools&apos;,&apos;Plot Navigation&apos;,true,&apos;OnceAtStop&apos;,false),extmgr.Configuration(&apos;Tools&apos;,&apos;Measurements&apos;,true,&apos;Version&apos;,&apos;2020b&apos;)),&apos;Version&apos;,&apos;2020b&apos;,&apos;Location&apos;,[694 202 1008 624])</P>
+    <P Name="NumInputPorts">1</P>
+    <P Name="Floating">off</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">56#out:1</P>
+    <P Name="Dst">70#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">54#out:1</P>
+    <P Name="Dst">3#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">qGust</P>
+    <P Name="ZOrder">3</P>
+    <P Name="Labels">[0, 1]</P>
+    <P Name="Src">48#out:2</P>
+    <P Name="Points">[35, 0; 0, 40]</P>
+    <P Name="Dst">55#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">wGust</P>
+    <P Name="ZOrder">4</P>
+    <P Name="Labels">[0, 1]</P>
+    <P Name="Src">48#out:1</P>
+    <P Name="Points">[35, 0]</P>
+    <Branch>
+      <P Name="ZOrder">5</P>
+      <P Name="Dst">56#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">6</P>
+      <P Name="Points">[0, -65]</P>
+      <P Name="Dst">54#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">70#out:1</P>
+    <P Name="Dst">3#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">8</P>
+    <P Name="Src">55#out:1</P>
+    <P Name="Points">[30, 0]</P>
+    <P Name="Dst">70#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">9</P>
+    <P Name="Src">2#out:1</P>
+    <P Name="Dst">3#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">10</P>
+    <P Name="Src">33#out:1</P>
+    <P Name="Dst">2#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">11</P>
+    <P Name="Src">71#out:1</P>
+    <P Name="Dst">33#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">Stick</P>
+    <P Name="ZOrder">12</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">58#out:1</P>
+    <P Name="Dst">71#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">13</P>
+    <P Name="Src">1#out:1</P>
+    <P Name="Dst">71#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">14</P>
+    <P Name="Src">3#out:1</P>
+    <P Name="Dst">78#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">15</P>
+    <P Name="Src">3#out:2</P>
+    <P Name="Dst">79#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">q, rad/sec</P>
+    <P Name="ZOrder">16</P>
+    <P Name="Labels">[0, 1]</P>
+    <P Name="Src">3#out:3</P>
+    <P Name="Points">[45, 0; 0, 170; -430, 0; 0, -260]</P>
+    <P Name="Dst">33#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">alpha, rad</P>
+    <P Name="ZOrder">17</P>
+    <P Name="Labels">[2, 1]</P>
+    <P Name="Src">3#out:4</P>
+    <P Name="Points">[30, 0; 0, 105]</P>
+    <Branch>
+      <P Name="ZOrder">18</P>
+      <P Name="Points">[-400, 0; 0, -225]</P>
+      <P Name="Dst">33#in:3</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">19</P>
+      <P Name="Dst">72#in:1</P>
+    </Branch>
+  </Line>
+  <Annotation SID="75">
+    <P Name="Name">Aircraft Longitudinal Flight Control</P>
+    <P Name="Position">[207, 10, 479, 33]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-1</P>
+    <P Name="FontName">Arial</P>
+    <P Name="FontSize">18</P>
+    <P Name="FontWeight">bold</P>
+  </Annotation>
+  <Annotation SID="76">
+    <P Name="Name">This example models a flight control algorithm 
+for the longitudinal motion of an aircraft.</P>
+    <P Name="Position">[245, 38, 452, 66]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-2</P>
+  </Annotation>
+  <Annotation SID="80">
+    <P Name="Name">Copyright 2012-2022 The MathWorks, Inc.</P>
+    <P Name="Position">[207, 430, 396, 445]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="HorizontalAlignment">left</P>
+    <P Name="VerticalAlignment">top</P>
+    <P Name="ZOrder">-4</P>
+  </Annotation>
+</System>

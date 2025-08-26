@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sltp_graph version="1.1" packageUris="http://schema.mathworks.com/mf0/sltp_mm/R2022b_202203181029">
+  <sltp.mm.core.Context type="sltp.mm.core.Context" uuid="18544149-4e4c-446c-bb1e-462fa626a47e">
+    <globalData type="sltp.mm.core.GlobalData" uuid="03cadc1f-daae-4076-b271-f23395f29e10">
+      <dataName>portalpha, rad</dataName>
+      <type>RootOutport</type>
+    </globalData>
+    <globalData type="sltp.mm.core.GlobalData" uuid="affc555b-43ee-4421-ae57-ba3ac728a3a9">
+      <dataName>portu</dataName>
+      <type>RootInport</type>
+    </globalData>
+    <priorityDirection>HighNumberLast</priorityDirection>
+    <editorState type="sltp.mm.core.EditorState" uuid="0de29163-1e85-4d48-95db-fc3edf4fff98">
+      <isSynchronized>true</isSynchronized>
+      <panelState type="sltp.mm.core.EditorPanelState" uuid="885dcfd5-8409-4ebf-957d-8260cf94933f"/>
+    </editorState>
+    <rootTask type="sltp.mm.core.Task" uuid="3929aa32-0a13-406d-9372-190d76927b7b">
+      <context type="sltp.mm.core.Context" uuid="18544149-4e4c-446c-bb1e-462fa626a47e"/>
+      <explicit>false</explicit>
+      <name>Default</name>
+      <priority>-2147483648</priority>
+      <subgraph type="sltp.mm.core.Graph" uuid="4df83f19-7c8d-405a-bbda-ba623c112ca4">
+        <tasks type="sltp.mm.core.Task" uuid="664ae513-482c-42ff-a94b-54e4dfa80ab0">
+          <baseTask>true</baseTask>
+          <context type="sltp.mm.core.Context" uuid="18544149-4e4c-446c-bb1e-462fa626a47e"/>
+          <explicit>false</explicit>
+          <id>1</id>
+          <isTimed>true</isTimed>
+          <name>Cont</name>
+          <priority>40</priority>
+          <rates type="sltp.mm.core.Rate" uuid="4818ad5c-f4be-4a71-b7d9-9641a8f684c2">
+            <annotation>Cont</annotation>
+            <color>255</color>
+            <hasBlocks>true</hasBlocks>
+            <identifier>Continuous00</identifier>
+            <rateSpec type="sltp.mm.core.RateSpec">
+              <period>0.0</period>
+            </rateSpec>
+            <sti>0</sti>
+          </rates>
+          <rates type="sltp.mm.core.Rate" uuid="59bfeb2d-6740-4d48-9971-836c3385ca2e">
+            <annotation>D1</annotation>
+            <color>-436207361</color>
+            <hasBlocks>true</hasBlocks>
+            <rateSpec type="sltp.mm.core.RateSpec">
+              <period>.1</period>
+            </rateSpec>
+            <sti>1</sti>
+          </rates>
+        </tasks>
+      </subgraph>
+    </rootTask>
+  </sltp.mm.core.Context>
+</sltp_graph>

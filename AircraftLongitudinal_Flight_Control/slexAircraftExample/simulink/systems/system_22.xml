@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[11, 25, 724, 656]</P>
+  <Block BlockType="Inport" Name="Input" SID="23">
+    <P Name="Position">[85, 92, 115, 108]</P>
+    <P Name="ZOrder">-1</P>
+    <P Name="FontName">Arial</P>
+    <P Name="FontSize">14</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain" SID="24">
+    <P Name="Position">[220, 172, 265, 218]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="BlockMirror">on</P>
+    <P Name="ShowName">off</P>
+    <P Name="FontName">Arial</P>
+    <P Name="FontSize">14</P>
+    <P Name="Gain">Zw</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Integrator" Name="Integrate" SID="25">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[275, 83, 310, 117]</P>
+    <P Name="ZOrder">-3</P>
+    <P Name="ShowName">off</P>
+    <P Name="FontName">Arial</P>
+    <P Name="FontSize">14</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum" SID="26">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[150, 85, 180, 115]</P>
+    <P Name="ZOrder">-4</P>
+    <P Name="ShowName">off</P>
+    <P Name="FontName">Arial</P>
+    <P Name="FontSize">14</P>
+    <P Name="Inputs">|++</P>
+    <P Name="InputSameDT">on</P>
+    <P Name="OutDataTypeStr">Inherit: Same as first input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Outport" Name="wdot" SID="27">
+    <P Name="Position">[395, 37, 425, 53]</P>
+    <P Name="ZOrder">-5</P>
+    <P Name="FontName">Arial</P>
+    <P Name="FontSize">14</P>
+    <P Name="InitialOutput">0</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Block BlockType="Outport" Name="w" SID="28">
+    <P Name="Position">[395, 92, 425, 108]</P>
+    <P Name="ZOrder">-6</P>
+    <P Name="FontName">Arial</P>
+    <P Name="FontSize">14</P>
+    <P Name="Port">2</P>
+    <P Name="InitialOutput">0</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">23#out:1</P>
+    <P Name="Dst">26#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">24#out:1</P>
+    <P Name="Points">[-50, 0]</P>
+    <P Name="Dst">26#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">25#out:1</P>
+    <P Name="Points">[30, 0]</P>
+    <Branch>
+      <P Name="ZOrder">4</P>
+      <P Name="Dst">28#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">5</P>
+      <P Name="Points">[0, 95]</P>
+      <P Name="Dst">24#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">6</P>
+    <P Name="Src">26#out:1</P>
+    <P Name="Points">[50, 0]</P>
+    <Branch>
+      <P Name="ZOrder">7</P>
+      <P Name="Dst">25#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">8</P>
+      <P Name="Points">[0, -55]</P>
+      <P Name="Dst">27#in:1</P>
+    </Branch>
+  </Line>
+</System>

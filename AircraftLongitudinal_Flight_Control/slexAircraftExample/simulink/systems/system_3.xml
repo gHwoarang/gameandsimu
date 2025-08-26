@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[25, 25, 800, 600]</P>
+  <Block BlockType="Inport" Name="Elevator&#xA;Deflection&#xA;d (deg)" SID="4">
+    <P Name="Position">[35, 27, 65, 43]</P>
+    <P Name="ZOrder">-1</P>
+  </Block>
+  <Block BlockType="Inport" Name="Vertical Gust&#xA;wGust (ft/sec)" SID="5">
+    <P Name="Position">[85, 92, 115, 108]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Inport" Name="Rotary Gust&#xA;qGust (rad/sec)" SID="6">
+    <P Name="Position">[85, 267, 115, 283]</P>
+    <P Name="ZOrder">-3</P>
+    <P Name="Port">3</P>
+  </Block>
+  <Block BlockType="InportShadow" Name="Elevator&#xA;Deflection&#xA;d (deg)1" SID="7">
+    <P Name="Position">[40, 341, 70, 359]</P>
+    <P Name="ZOrder">-4</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain1" SID="8">
+    <P Name="Position">[525, 92, 575, 138]</P>
+    <P Name="ZOrder">-5</P>
+    <P Name="ShowName">off</P>
+    <P Name="Gain">1/Uo</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain3" SID="9">
+    <P Name="Position">[290, 145, 330, 185]</P>
+    <P Name="ZOrder">-6</P>
+    <P Name="BlockMirror">on</P>
+    <P Name="ShowName">off</P>
+    <P Name="Gain">Uo</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain4" SID="10">
+    <P Name="Position">[290, 203, 330, 247]</P>
+    <P Name="ZOrder">-7</P>
+    <P Name="BlockMirror">on</P>
+    <P Name="ShowName">off</P>
+    <P Name="Gain">Mw</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain5" SID="11">
+    <P Name="Position">[140, 15, 175, 55]</P>
+    <P Name="ZOrder">-8</P>
+    <P Name="ShowName">off</P>
+    <P Name="Gain">Zd</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain6" SID="12">
+    <P Name="Position">[145, 330, 180, 370]</P>
+    <P Name="ZOrder">-9</P>
+    <P Name="ShowName">off</P>
+    <P Name="Gain">Md</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="Pitch Channel" SID="13">
+    <PortCounts in="1" out="2"/>
+    <P Name="Position">[365, 245, 440, 305]</P>
+    <P Name="ZOrder">-10</P>
+    <P Name="FontName">Arial</P>
+    <P Name="FontSize">14</P>
+    <System Ref="system_13"/>
+  </Block>
+  <Block BlockType="Sum" Name="Sum1" SID="20">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[225, 85, 255, 115]</P>
+    <P Name="ZOrder">-11</P>
+    <P Name="ShowName">off</P>
+    <P Name="Inputs">+-+</P>
+    <P Name="InputSameDT">on</P>
+    <P Name="OutDataTypeStr">Inherit: Same as first input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum2" SID="21">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[225, 260, 255, 290]</P>
+    <P Name="ZOrder">-12</P>
+    <P Name="ShowName">off</P>
+    <P Name="Inputs">+-+</P>
+    <P Name="InputSameDT">on</P>
+    <P Name="OutDataTypeStr">Inherit: Same as first input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="Vertical Channel" SID="22">
+    <PortCounts in="1" out="2"/>
+    <P Name="Position">[365, 70, 440, 130]</P>
+    <P Name="ZOrder">-13</P>
+    <P Name="FontName">Arial</P>
+    <P Name="FontSize">14</P>
+    <System Ref="system_22"/>
+  </Block>
+  <Block BlockType="Outport" Name="wdot (ft/sec^2)" SID="29">
+    <P Name="Position">[610, 77, 645, 93]</P>
+    <P Name="ZOrder">-14</P>
+    <P Name="NameLocation">top</P>
+    <P Name="InitialOutput">0</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Block BlockType="Outport" Name="Pitch Accel&#xA;qdot (rad/sec2)" SID="30">
+    <P Name="Position">[610, 282, 645, 298]</P>
+    <P Name="ZOrder">-15</P>
+    <P Name="Port">2</P>
+    <P Name="InitialOutput">0</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Block BlockType="Outport" Name="Pitch Rate&#xA;q (rad/sec)" SID="31">
+    <P Name="Position">[610, 252, 645, 268]</P>
+    <P Name="ZOrder">-16</P>
+    <P Name="NameLocation">top</P>
+    <P Name="Port">3</P>
+    <P Name="InitialOutput">0</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Block BlockType="Outport" Name="Alpha, deg" SID="32">
+    <P Name="Position">[610, 107, 645, 123]</P>
+    <P Name="ZOrder">-17</P>
+    <P Name="Port">4</P>
+    <P Name="InitialOutput">0</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">22#out:2</P>
+    <P Name="Points">[55, 0]</P>
+    <Branch>
+      <P Name="ZOrder">2</P>
+      <P Name="Labels">[1, 0]</P>
+      <P Name="Points">[0, 50; -50, 60]</P>
+      <P Name="Dst">10#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">3</P>
+      <P Name="Dst">8#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">13#out:1</P>
+    <P Name="Points">[55, 0]</P>
+    <Branch>
+      <P Name="ZOrder">5</P>
+      <P Name="Dst">31#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">6</P>
+      <P Name="Points">[0, -35; -60, -60]</P>
+      <P Name="Dst">9#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">12#out:1</P>
+    <P Name="Points">[55, 0]</P>
+    <P Name="Dst">21#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">8</P>
+    <P Name="Src">11#out:1</P>
+    <P Name="Points">[60, 0]</P>
+    <P Name="Dst">20#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">9</P>
+    <P Name="Src">9#out:1</P>
+    <P Name="Points">[-45, 0]</P>
+    <P Name="Dst">20#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">10</P>
+    <P Name="Src">6#out:1</P>
+    <P Name="Dst">21#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">11</P>
+    <P Name="Src">21#out:1</P>
+    <P Name="Dst">13#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">12</P>
+    <P Name="Src">20#out:1</P>
+    <P Name="Dst">22#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">13</P>
+    <P Name="Src">10#out:1</P>
+    <P Name="Points">[-45, 0]</P>
+    <P Name="Dst">21#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">14</P>
+    <P Name="Src">5#out:1</P>
+    <P Name="Dst">20#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">15</P>
+    <P Name="Src">4#out:1</P>
+    <P Name="Dst">11#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">16</P>
+    <P Name="Src">7#out:1</P>
+    <P Name="Dst">12#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">17</P>
+    <P Name="Src">8#out:1</P>
+    <P Name="Dst">32#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">18</P>
+    <P Name="Src">22#out:1</P>
+    <P Name="Dst">29#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">19</P>
+    <P Name="Src">13#out:2</P>
+    <P Name="Dst">30#in:1</P>
+  </Line>
+</System>

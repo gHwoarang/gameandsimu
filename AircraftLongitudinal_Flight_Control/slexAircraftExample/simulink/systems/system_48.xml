@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[25, 25, 800, 600]</P>
+  <Block BlockType="Reference" Name="Band-Limited&#xA;White Noise" SID="49">
+    <PortCounts out="1"/>
+    <P Name="Position">[40, 30, 70, 60]</P>
+    <P Name="ZOrder">-1</P>
+    <P Name="LibraryVersion">3.4</P>
+    <P Name="SourceBlock">simulink/Sources/Band-Limited
+White Noise</P>
+    <P Name="SourceType">Band-Limited White Noise.</P>
+    <InstanceData>
+      <P Name="RTWMemSecFuncInitTerm">Inherit from model</P>
+      <P Name="RTWMemSecFuncExecute">Inherit from model</P>
+      <P Name="RTWMemSecDataConstants">Inherit from model</P>
+      <P Name="RTWMemSecDataInternal">Inherit from model</P>
+      <P Name="RTWMemSecDataParameters">Inherit from model</P>
+      <P Name="ContentPreviewEnabled">off</P>
+      <P Name="Cov">1</P>
+      <P Name="Ts">0.1</P>
+      <P Name="seed">[23341]</P>
+      <P Name="VectorParams1D">on</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="TransferFcn" Name="Q-gust model" SID="50">
+    <P Name="Position">[155, 145, 295, 195]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="Numerator">pi/(4*b)*[1 0]</P>
+    <P Name="Denominator">[1 pi*Vto/(4*b)]</P>
+  </Block>
+  <Block BlockType="TransferFcn" Name="W-gust model" SID="51">
+    <P Name="Position">[115, 17, 335, 73]</P>
+    <P Name="ZOrder">-3</P>
+    <P Name="Numerator">Swg/sqrt(a^3)*[sqrt(3)*a,1]</P>
+    <P Name="Denominator">[1 (2/a) 1/a^2]</P>
+  </Block>
+  <Block BlockType="Outport" Name="Wg" SID="52">
+    <P Name="Position">[380, 36, 415, 54]</P>
+    <P Name="ZOrder">-4</P>
+    <P Name="InitialOutput">0</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Block BlockType="Outport" Name="Qg" SID="53">
+    <P Name="Position">[380, 160, 415, 180]</P>
+    <P Name="ZOrder">-5</P>
+    <P Name="Port">2</P>
+    <P Name="InitialOutput">0</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">49#out:1</P>
+    <P Name="Dst">51#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">50#out:1</P>
+    <P Name="Dst">53#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">51#out:1</P>
+    <P Name="Points">[10, 0]</P>
+    <Branch>
+      <P Name="ZOrder">4</P>
+      <P Name="Dst">52#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">5</P>
+      <P Name="Points">[0, 70; -225, 0; 0, 55]</P>
+      <P Name="Dst">50#in:1</P>
+    </Branch>
+  </Line>
+</System>

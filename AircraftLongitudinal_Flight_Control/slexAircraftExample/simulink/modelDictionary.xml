@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" defaultPackage="slid" packageUris="http://schema.mathworks.com/mf0/slid/R2022b_20220222">
+  <System type="System" uuid="9381131d-a261-44c6-b6db-6d454ebd36c3">
+    <Parameter type="Parameter" uuid="cbf74b2e-5a4d-41ba-9cdc-c4620e40c46a">
+      <Identifier>Beta</Identifier>
+      <Name>Beta</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="1e75298a-a403-4ace-9d66-afa9c85c1ff8">
+      <Identifier>Gamma</Identifier>
+      <Name>Gamma</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="b9616c04-7dc4-4010-a477-50bdc9d58136">
+      <Identifier>Ka</Identifier>
+      <Name>Ka</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="264e9a4c-26b5-45d7-a998-bdb5308947dd">
+      <Identifier>Kf</Identifier>
+      <Name>Kf</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="075befac-f8f3-42a1-8589-dfdadcfa2fd1">
+      <Identifier>Ki</Identifier>
+      <Name>Ki</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="f6819c5f-363f-4498-ac69-de4bf0424853">
+      <Identifier>Kq</Identifier>
+      <Name>Kq</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="333a8016-7114-413b-b867-12ec900cf6d9">
+      <Identifier>Md</Identifier>
+      <Name>Md</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="dd8b7cbb-ab66-4ea7-b5ea-600e2d0ee196">
+      <Identifier>Mq</Identifier>
+      <Name>Mq</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="910c5a41-e347-4d5d-9083-b7e0d208c597">
+      <Identifier>Mw</Identifier>
+      <Name>Mw</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="c5f7b606-0009-498d-957f-4ae815e79f1d">
+      <Identifier>Sa</Identifier>
+      <Name>Sa</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="75a76c18-7e76-48a8-9f97-5e6dc4542d16">
+      <Identifier>Swg</Identifier>
+      <Name>Swg</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="d7bf14be-8fa0-486b-9bc3-75043d8bf844">
+      <Identifier>Ta</Identifier>
+      <Name>Ta</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="1333dd94-3681-4ef0-a2e4-908a37adb4c1">
+      <Identifier>Tal</Identifier>
+      <Name>Tal</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="45c12927-2909-4a65-91ff-6b5260ed1ca7">
+      <Identifier>Ts</Identifier>
+      <Name>Ts</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="e38de31c-0b1c-4769-a17e-bbe358d7d81e">
+      <Identifier>Uo</Identifier>
+      <Name>Uo</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="94484028-b957-4c2b-b150-0bb7593402d2">
+      <Identifier>Vto</Identifier>
+      <Name>Vto</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="baeb41d7-77f5-4b61-85a1-4726c50236ea">
+      <Identifier>W1</Identifier>
+      <Name>W1</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="7215f0ee-2e0f-42e4-bdf2-23b48d84f350">
+      <Identifier>W2</Identifier>
+      <Name>W2</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="2ec03b9d-1a4b-4d21-89c6-93f991fcbf31">
+      <Identifier>Wa</Identifier>
+      <Name>Wa</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="db79334d-fcb2-44d9-bf92-5e7ccaebe806">
+      <Identifier>Zd</Identifier>
+      <Name>Zd</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="6ee21756-48b6-4b25-8f50-48c0f5d59beb">
+      <Identifier>Zw</Identifier>
+      <Name>Zw</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="062a9863-b89c-4f51-a0f6-e76b27a7808e">
+      <Identifier>a</Identifier>
+      <Name>a</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="4ffc5c29-3502-48c3-93a3-429e2cac8f28">
+      <Identifier>b</Identifier>
+      <Name>b</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="411e2cef-e3b8-42f4-8534-2f45f9cd0644">
+      <Identifier>cmdgain</Identifier>
+      <Name>cmdgain</Name>
+    </Parameter>
+    <Parameter type="Parameter" uuid="aa10e3bc-0f67-4d95-8034-a758c294cfc5">
+      <Identifier>g</Identifier>
+      <Name>g</Name>
+    </Parameter>
+    <Interface type="Interface" uuid="9400ba60-477f-4a27-8a55-af26143bd5ae"/>
+  </System>
+</MF0>
